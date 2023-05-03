@@ -11,14 +11,42 @@
 		6C322BCC29F9DF960022CE1E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C322BCB29F9DF960022CE1E /* ContentView.swift */; };
 		6C322BCE29F9DF980022CE1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C322BCD29F9DF980022CE1E /* Assets.xcassets */; };
 		6C322BD129F9DF980022CE1E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C322BD029F9DF980022CE1E /* Preview Assets.xcassets */; };
+		6C322BDE29F9E05B0022CE1E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C322BDD29F9E05B0022CE1E /* HomeView.swift */; };
+		6C322BE029F9E0810022CE1E /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C322BDF29F9E0810022CE1E /* DataModels.swift */; };
+		6C322BE329F9E0990022CE1E /* NinjaModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6C322BE129F9E0990022CE1E /* NinjaModel.xcdatamodeld */; };
+		6C64E09B29FF866E00EA9262 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64E09A29FF866E00EA9262 /* CoreDataManager.swift */; };
+		6C64E09D29FF879000EA9262 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64E09C29FF879000EA9262 /* DataManager.swift */; };
+		6C64E0A029FF8B4C00EA9262 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64E09F29FF8B4C00EA9262 /* CalendarHelper.swift */; };
+		6C64E0A229FF8B5D00EA9262 /* MonthCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64E0A129FF8B5D00EA9262 /* MonthCalendarView.swift */; };
+		6C64E0A429FF8B8000EA9262 /* MonthCalendarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64E0A329FF8B8000EA9262 /* MonthCalendarCellView.swift */; };
+		6C64E0A629FF8BA200EA9262 /* MonthDateScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64E0A529FF8BA200EA9262 /* MonthDateScrollerView.swift */; };
+		6C64E0AA29FF8C6600EA9262 /* WeekCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64E0A929FF8C6600EA9262 /* WeekCalendarView.swift */; };
+		6C64E0AC29FF8C8E00EA9262 /* WeekCalendarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64E0AB29FF8C8E00EA9262 /* WeekCalendarCellView.swift */; };
+		6C64E0AE29FF8CA600EA9262 /* TaskCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64E0AD29FF8CA600EA9262 /* TaskCreationView.swift */; };
+		6C64E0B12A0229FB00EA9262 /* QRScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64E0B02A0229FB00EA9262 /* QRScanView.swift */; };
+		6C64E0B32A022A8D00EA9262 /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64E0B22A022A8D00EA9262 /* QRScannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6C322BC629F9DF960022CE1E /* ninja5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ninja5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C322BC929F9DF960022CE1E /* ninja5App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ninja5App.swift; sourceTree = "<group>"; };
-		6C322BCB29F9DF960022CE1E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6C322BCB29F9DF960022CE1E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../ContentView.swift; sourceTree = "<group>"; };
 		6C322BCD29F9DF980022CE1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C322BD029F9DF980022CE1E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6C322BDD29F9E05B0022CE1E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		6C322BDF29F9E0810022CE1E /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
+		6C322BE229F9E0990022CE1E /* NinjaModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NinjaModel.xcdatamodel; sourceTree = "<group>"; };
+		6C64E09A29FF866E00EA9262 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		6C64E09C29FF879000EA9262 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		6C64E09F29FF8B4C00EA9262 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
+		6C64E0A129FF8B5D00EA9262 /* MonthCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCalendarView.swift; sourceTree = "<group>"; };
+		6C64E0A329FF8B8000EA9262 /* MonthCalendarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCalendarCellView.swift; sourceTree = "<group>"; };
+		6C64E0A529FF8BA200EA9262 /* MonthDateScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDateScrollerView.swift; sourceTree = "<group>"; };
+		6C64E0A929FF8C6600EA9262 /* WeekCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCalendarView.swift; sourceTree = "<group>"; };
+		6C64E0AB29FF8C8E00EA9262 /* WeekCalendarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCalendarCellView.swift; sourceTree = "<group>"; };
+		6C64E0AD29FF8CA600EA9262 /* TaskCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCreationView.swift; sourceTree = "<group>"; };
+		6C64E0B02A0229FB00EA9262 /* QRScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanView.swift; sourceTree = "<group>"; };
+		6C64E0B22A022A8D00EA9262 /* QRScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +80,11 @@
 			isa = PBXGroup;
 			children = (
 				6C322BC929F9DF960022CE1E /* ninja5App.swift */,
-				6C322BCB29F9DF960022CE1E /* ContentView.swift */,
+				6C322BD729F9DFAC0022CE1E /* Views */,
+				6C64E0AF2A0229E700EA9262 /* QRScanViews */,
+				6C322BD829F9DFB20022CE1E /* ViewControllers */,
+				6C322BDA29F9DFE20022CE1E /* DataManagers */,
+				6C322BD929F9DFBA0022CE1E /* Models */,
 				6C322BCD29F9DF980022CE1E /* Assets.xcassets */,
 				6C322BCF29F9DF980022CE1E /* Preview Content */,
 			);
@@ -65,6 +97,80 @@
 				6C322BD029F9DF980022CE1E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6C322BD729F9DFAC0022CE1E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6C322BCB29F9DF960022CE1E /* ContentView.swift */,
+				6C322BDD29F9E05B0022CE1E /* HomeView.swift */,
+				6C64E09E29FF8B2700EA9262 /* CalendarViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6C322BD829F9DFB20022CE1E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6C322BD929F9DFBA0022CE1E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6C322BE129F9E0990022CE1E /* NinjaModel.xcdatamodeld */,
+				6C322BDF29F9E0810022CE1E /* DataModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6C322BDA29F9DFE20022CE1E /* DataManagers */ = {
+			isa = PBXGroup;
+			children = (
+				6C64E09A29FF866E00EA9262 /* CoreDataManager.swift */,
+				6C64E09C29FF879000EA9262 /* DataManager.swift */,
+			);
+			path = DataManagers;
+			sourceTree = "<group>";
+		};
+		6C64E09E29FF8B2700EA9262 /* CalendarViews */ = {
+			isa = PBXGroup;
+			children = (
+				6C64E09F29FF8B4C00EA9262 /* CalendarHelper.swift */,
+				6C64E0AD29FF8CA600EA9262 /* TaskCreationView.swift */,
+				6C64E0A729FF8C4600EA9262 /* MonthCalendarViews */,
+				6C64E0A829FF8C5600EA9262 /* WeekCalendarViews */,
+			);
+			path = CalendarViews;
+			sourceTree = "<group>";
+		};
+		6C64E0A729FF8C4600EA9262 /* MonthCalendarViews */ = {
+			isa = PBXGroup;
+			children = (
+				6C64E0A129FF8B5D00EA9262 /* MonthCalendarView.swift */,
+				6C64E0A329FF8B8000EA9262 /* MonthCalendarCellView.swift */,
+				6C64E0A529FF8BA200EA9262 /* MonthDateScrollerView.swift */,
+			);
+			path = MonthCalendarViews;
+			sourceTree = "<group>";
+		};
+		6C64E0A829FF8C5600EA9262 /* WeekCalendarViews */ = {
+			isa = PBXGroup;
+			children = (
+				6C64E0A929FF8C6600EA9262 /* WeekCalendarView.swift */,
+				6C64E0AB29FF8C8E00EA9262 /* WeekCalendarCellView.swift */,
+			);
+			path = WeekCalendarViews;
+			sourceTree = "<group>";
+		};
+		6C64E0AF2A0229E700EA9262 /* QRScanViews */ = {
+			isa = PBXGroup;
+			children = (
+				6C64E0B02A0229FB00EA9262 /* QRScanView.swift */,
+				6C64E0B22A022A8D00EA9262 /* QRScannerView.swift */,
+			);
+			path = QRScanViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +243,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C64E09B29FF866E00EA9262 /* CoreDataManager.swift in Sources */,
+				6C64E0A429FF8B8000EA9262 /* MonthCalendarCellView.swift in Sources */,
+				6C64E0AE29FF8CA600EA9262 /* TaskCreationView.swift in Sources */,
+				6C64E0AA29FF8C6600EA9262 /* WeekCalendarView.swift in Sources */,
+				6C64E0AC29FF8C8E00EA9262 /* WeekCalendarCellView.swift in Sources */,
+				6C64E0A229FF8B5D00EA9262 /* MonthCalendarView.swift in Sources */,
+				6C64E0B32A022A8D00EA9262 /* QRScannerView.swift in Sources */,
+				6C64E0A029FF8B4C00EA9262 /* CalendarHelper.swift in Sources */,
+				6C322BDE29F9E05B0022CE1E /* HomeView.swift in Sources */,
+				6C322BE029F9E0810022CE1E /* DataModels.swift in Sources */,
+				6C64E09D29FF879000EA9262 /* DataManager.swift in Sources */,
+				6C64E0B12A0229FB00EA9262 /* QRScanView.swift in Sources */,
 				6C322BCC29F9DF960022CE1E /* ContentView.swift in Sources */,
+				6C322BE329F9E0990022CE1E /* NinjaModel.xcdatamodeld in Sources */,
+				6C64E0A629FF8BA200EA9262 /* MonthDateScrollerView.swift in Sources */,
 				6C322BCA29F9DF960022CE1E /* ninja5App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +390,7 @@
 				DEVELOPMENT_TEAM = KAN7CPJNZ3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +420,7 @@
 				DEVELOPMENT_TEAM = KAN7CPJNZ3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -339,6 +461,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6C322BE129F9E0990022CE1E /* NinjaModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6C322BE229F9E0990022CE1E /* NinjaModel.xcdatamodel */,
+			);
+			currentVersion = 6C322BE229F9E0990022CE1E /* NinjaModel.xcdatamodel */;
+			path = NinjaModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6C322BBE29F9DF960022CE1E /* Project object */;
 }

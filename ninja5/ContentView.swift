@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  ninja5
+//  ninja4
 //
 //  Created by Lukas on 4/26/23.
 //
@@ -8,19 +8,43 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @EnvironmentObject var manager : DataManager
+    
+    @State private var selectedTab = 0
+    let dateHolder = DateHolder()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        TabView(selection: $selectedTab) {
+            HomeView()
+                .environmentObject(manager)
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
+                .tag(0)
+
+            MonthCalendarView()
+                .environmentObject(dateHolder)
+                .environmentObject(manager)
+                .tabItem {
+                    Image(systemName: "calendar")
+                    Text("Calendar")
+                }
+                .tag(1)
+
+            AllNotesView()
+                .tabItem {
+                    Image(systemName: "note.text")
+                    Text("All Notes")
+                }
+                .tag(2)
         }
-        .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+struct AllNotesView: View {
+    var body: some View {
+        Text("Hello world!")
     }
 }

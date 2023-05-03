@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E261" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FolderEntity" representedClassName="FolderEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="colorName" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="notes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NoteEntity" inverseName="folder" inverseEntity="NoteEntity"/>
+        <relationship name="tasks" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TaskEntity" inverseName="folder" inverseEntity="TaskEntity"/>
+    </entity>
+    <entity name="NoteEntity" representedClassName="NoteEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="canvasData" optional="YES" attributeType="Binary"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="folder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FolderEntity" inverseName="notes" inverseEntity="FolderEntity"/>
+    </entity>
+    <entity name="TaskEntity" representedClassName="TaskEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="folder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FolderEntity" inverseName="tasks" inverseEntity="FolderEntity"/>
+    </entity>
+</model>
