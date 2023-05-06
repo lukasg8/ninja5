@@ -79,34 +79,40 @@ struct HomeView: View {
                     }
                     .onAppear {dateHolder.currentWeekIndex = 0}
                     
-                    HStack {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 20)
-                                .foregroundColor(.white)
-                                .shadow(color:.gray.opacity(0.3), radius:5,x:0,y:5)
-                            VStack (alignment:.leading) {
-                                Text("Upcoming Tasks")
-                                    .font(.system(size:20))
-                                    .bold()
-                                TaskListView()
-                                    .environmentObject(manager)
-                                Spacer()
+                    GeometryReader { geometry in
+                        HStack (alignment:.top) {
+                            ZStack (alignment:.topLeading) {
+                                RoundedRectangle(cornerRadius: 20)
+                                    .foregroundColor(.white)
+                                    .shadow(color:.gray.opacity(0.3), radius:5,x:0,y:5)
+                                VStack (alignment:.leading) {
+                                    Text("Upcoming Tasks")
+                                        .font(.system(size:20))
+                                        .bold()
+                                    TaskListView()
+                                        .environmentObject(manager)
+                                    Spacer()
+                                }
+                                .padding()
                             }
-                            .padding()
-                        }
-                        Spacer()
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 20)
-                                .foregroundColor(.white)
-                                .shadow(color:.gray.opacity(0.3), radius:5,x:0,y:5)
-                            VStack (alignment:.leading) {
-                                Text("Classes")
-                                    .font(.system(size:20))
-                                    .bold()
-                                ClassGridView(courses: courses)
-                                Spacer()
+                            .frame(width: geometry.size.width * 2/3) // Set the width to 2/3 of the screen width
+
+                            Spacer()
+
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 20)
+                                    .foregroundColor(.white)
+                                    .shadow(color:.gray.opacity(0.3), radius:5,x:0,y:5)
+                                VStack (alignment:.leading) {
+                                    Text("Classes")
+                                        .font(.system(size:20))
+                                        .bold()
+                                    ClassGridView(courses: courses)
+                                    Spacer()
+                                }
+                                .padding()
                             }
-                            .padding()
+                            .frame(width: geometry.size.width * 1/3) // Set the width to 1/3 of the screen width
                         }
                     }
                 }
