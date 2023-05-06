@@ -42,9 +42,3 @@ struct ContentView: View {
         }
     }
 }
-
-struct AllNotesView: View {
-    var body: some View {
-        Text("Hello world!")
-    }
-}

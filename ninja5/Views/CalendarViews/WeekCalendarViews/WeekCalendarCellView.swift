@@ -13,17 +13,19 @@ struct WeekCalendarCellView: View {
     let tasks: [Task]
     
     var body: some View {
+        
         VStack (alignment:.leading, spacing:0) {
             HStack {
-                Spacer()
-                Text(dayOfWeek())
-                    .foregroundColor(.black)
-                ZStack {
-                    currentDayCircle()
-                    Text(dayNumber())
-                        .foregroundColor(textColor())
-                }
-                Spacer()
+                dayHeader()
+//                Spacer()
+//                Text(dayOfWeek())
+//                    .foregroundColor(.black)
+//                ZStack {
+//                    currentDayCircle()
+//                    Text(dayNumber())
+//                        .foregroundColor(textColor())
+//                }
+//                Spacer()
             }
             .padding(.bottom,3)
             Divider()
@@ -33,9 +35,19 @@ struct WeekCalendarCellView: View {
         .padding(.top)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
+    
+    func dayHeader() -> some View {
+        HStack {
+            Text(dayOfWeek() + "  " + dayNumber())
+                .foregroundColor(.black)
+                .padding(.horizontal, 8) // Add some horizontal padding to make the rectangle a bit wider than the text
+                .padding(.vertical, 4) // Add some vertical padding to make the rectangle a bit taller than the text
+                .background(RoundedRectangle(cornerRadius: 15).fill(Color("LightGray")))
+            Spacer()
+        }
+    }
 
     func taskList() -> some View {
-        
         ScrollView {
             VStack(alignment: .center, spacing: 0) {
                 ForEach(tasks) { task in

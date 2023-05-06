@@ -17,7 +17,7 @@ struct HomeView: View {
     @State private var courses: [Folder] = [
         Folder(
             id: UUID(),
-            name: "Introduction to Computer Science",
+            name: "CMSC 143",
             colorName: "blue", // blue in hexadecimal
             notes: [],
             tasks: [],
@@ -25,7 +25,7 @@ struct HomeView: View {
         ),
         Folder(
             id: UUID(),
-            name: "Calculus I",
+            name: "MATH 153",
             colorName: "green", // green in hexadecimal
             notes: [],
             tasks: [],
@@ -33,7 +33,7 @@ struct HomeView: View {
         ),
         Folder(
             id: UUID(),
-            name: "Physics I",
+            name: "PHYS 131",
             colorName: "purple", // red in hexadecimal
             notes: [],
             tasks: [],
@@ -41,7 +41,7 @@ struct HomeView: View {
         ),
         Folder(
             id: UUID(),
-            name: "English Composition",
+            name: "PHIL 272",
             colorName: "red", // purple in hexadecimal
             notes: [],
             tasks: [],
@@ -54,52 +54,64 @@ struct HomeView: View {
     let dateHolder = DateHolder()
     
     var body: some View {
+        
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
+                VStack (alignment:.leading) {
+                    HStack {
+                        Text("Welcome \(studentName)")
+                            .font(.largeTitle)
+                            .bold()
+                        Spacer()
+                        Button(action: {showingQR = true}, label: {Image(systemName: "qrcode")})
+                            .padding(.trailing)
+                    }
                     
-                    Text("Welcome \(studentName)")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 20)
+                            .foregroundColor(.white)
+                            .shadow(color: .gray.opacity(0.3), radius: 5, x: 0, y: -5)
+                            .shadow(color: .gray.opacity(0.3), radius: 5, x: 0, y: 5)
+                        WeekCalendarView(folders: courses)
+                            .environmentObject(dateHolder)
+                            .environmentObject(manager)
+                            .padding()
+                    }
+                    .onAppear {dateHolder.currentWeekIndex = 0}
                     
-                    WeekCalendarView(folders: courses)
-                        .environmentObject(dateHolder)
-                        .environmentObject(manager)
-                        .onAppear {
-                            dateHolder.currentWeekIndex = 0
+                    HStack {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 20)
+                                .foregroundColor(.white)
+                                .shadow(color:.gray.opacity(0.3), radius:5,x:0,y:5)
+                            VStack (alignment:.leading) {
+                                Text("Upcoming Tasks")
+                                    .font(.system(size:20))
+                                    .bold()
+                                TaskListView()
+                                    .environmentObject(manager)
+                                Spacer()
+                            }
+                            .padding()
                         }
-                    
-                    Text("Classes")
-                        .font(.title)
-                        .fontWeight(.bold)
-                    
-                    ClassGridView(courses: courses)
-                    
-                    Text("Upcoming Tasks")
-                        .font(.title)
-                        .fontWeight(.bold)
-                    
-                    TaskListView()
-                        .environmentObject(manager)
+                        Spacer()
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 20)
+                                .foregroundColor(.white)
+                                .shadow(color:.gray.opacity(0.3), radius:5,x:0,y:5)
+                            VStack (alignment:.leading) {
+                                Text("Classes")
+                                    .font(.system(size:20))
+                                    .bold()
+                                ClassGridView(courses: courses)
+                                Spacer()
+                            }
+                            .padding()
+                        }
+                    }
                 }
                 .padding()
             }
-            .navigationBarTitle("Home", displayMode: .inline)
-            .toolbar {
-                ToolbarItem(placement:.navigationBarTrailing) {
-                    Button(action: {
-                        showingQR = true
-                    }, label: {
-                        Image(systemName: "qrcode")
-                    })
-                }
-            }
-            .sheet(isPresented: $showingQR, content: {
-                QRCodeScannerView { code in
-                    fetchTask(from: code)
-                    showingQR = false
-                }
-            })
         }
     }
     
@@ -162,10 +174,11 @@ struct ClassGridView: View {
     var courses: [Folder]
     
     var body: some View {
-        LazyVGrid(columns: Array(repeating: .init(), count: 4), spacing: 10) {
-            ForEach(courses, id: \.id) { course in
+        
+        LazyVGrid(columns:Array(repeating:.init(),count:2),spacing:10) {
+            ForEach(courses, id:\.id) { course in
                 NavigationLink(destination: Text("Home view for \(course.name)")) {
-                    ClassBox(course: course)
+                    ClassBox(course:course)
                 }
             }
         }
@@ -178,7 +191,7 @@ struct ClassBox: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 20)
             .fill(course.color)
-            .frame(height: 150)
+            .frame(height: 70)
             .overlay(Text(course.name)
                         .font(.title2)
                         .fontWeight(.bold)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C1E2F522A06049200C28413 /* WidgetContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1E2F512A06049200C28413 /* WidgetContainerView.swift */; };
 		6C322BCA29F9DF960022CE1E /* ninja5App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C322BC929F9DF960022CE1E /* ninja5App.swift */; };
 		6C322BCC29F9DF960022CE1E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C322BCB29F9DF960022CE1E /* ContentView.swift */; };
 		6C322BCE29F9DF980022CE1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C322BCD29F9DF980022CE1E /* Assets.xcassets */; };
@@ -25,9 +26,16 @@
 		6C64E0AE29FF8CA600EA9262 /* TaskCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64E0AD29FF8CA600EA9262 /* TaskCreationView.swift */; };
 		6C64E0B12A0229FB00EA9262 /* QRScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64E0B02A0229FB00EA9262 /* QRScanView.swift */; };
 		6C64E0B32A022A8D00EA9262 /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64E0B22A022A8D00EA9262 /* QRScannerView.swift */; };
+		6C800BB82A035EC50010CA63 /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C800BB72A035EC50010CA63 /* CanvasViewController.swift */; };
+		6C800BBA2A035EE50010CA63 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C800BB92A035EE50010CA63 /* DrawingView.swift */; };
+		6C800BBC2A035F000010CA63 /* CanvasViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C800BBB2A035F000010CA63 /* CanvasViewControllerRepresentable.swift */; };
+		6C800BBE2A035F790010CA63 /* AllNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C800BBD2A035F790010CA63 /* AllNotesView.swift */; };
+		6C800BC02A03608C0010CA63 /* NoteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C800BBF2A03608C0010CA63 /* NoteRowView.swift */; };
+		6C800BC22A0364340010CA63 /* AddNoteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C800BC12A0364340010CA63 /* AddNoteSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C1E2F512A06049200C28413 /* WidgetContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContainerView.swift; sourceTree = "<group>"; };
 		6C322BC629F9DF960022CE1E /* ninja5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ninja5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C322BC929F9DF960022CE1E /* ninja5App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ninja5App.swift; sourceTree = "<group>"; };
 		6C322BCB29F9DF960022CE1E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +55,12 @@
 		6C64E0AD29FF8CA600EA9262 /* TaskCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCreationView.swift; sourceTree = "<group>"; };
 		6C64E0B02A0229FB00EA9262 /* QRScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanView.swift; sourceTree = "<group>"; };
 		6C64E0B22A022A8D00EA9262 /* QRScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
+		6C800BB72A035EC50010CA63 /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
+		6C800BB92A035EE50010CA63 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		6C800BBB2A035F000010CA63 /* CanvasViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewControllerRepresentable.swift; sourceTree = "<group>"; };
+		6C800BBD2A035F790010CA63 /* AllNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotesView.swift; sourceTree = "<group>"; };
+		6C800BBF2A03608C0010CA63 /* NoteRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRowView.swift; sourceTree = "<group>"; };
+		6C800BC12A0364340010CA63 /* AddNoteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +118,12 @@
 			children = (
 				6C322BCB29F9DF960022CE1E /* ContentView.swift */,
 				6C322BDD29F9E05B0022CE1E /* HomeView.swift */,
+				6C800BBD2A035F790010CA63 /* AllNotesView.swift */,
+				6C800BBF2A03608C0010CA63 /* NoteRowView.swift */,
+				6C800BC12A0364340010CA63 /* AddNoteSheet.swift */,
 				6C64E09E29FF8B2700EA9262 /* CalendarViews */,
+				6C800BB62A035EB00010CA63 /* DrawingViews */,
+				6C1E2F512A06049200C28413 /* WidgetContainerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -112,6 +131,7 @@
 		6C322BD829F9DFB20022CE1E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6C800BB72A035EC50010CA63 /* CanvasViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -171,6 +191,15 @@
 				6C64E0B22A022A8D00EA9262 /* QRScannerView.swift */,
 			);
 			path = QRScanViews;
+			sourceTree = "<group>";
+		};
+		6C800BB62A035EB00010CA63 /* DrawingViews */ = {
+			isa = PBXGroup;
+			children = (
+				6C800BB92A035EE50010CA63 /* DrawingView.swift */,
+				6C800BBB2A035F000010CA63 /* CanvasViewControllerRepresentable.swift */,
+			);
+			path = DrawingViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,18 +274,25 @@
 			files = (
 				6C64E09B29FF866E00EA9262 /* CoreDataManager.swift in Sources */,
 				6C64E0A429FF8B8000EA9262 /* MonthCalendarCellView.swift in Sources */,
+				6C800BBE2A035F790010CA63 /* AllNotesView.swift in Sources */,
+				6C1E2F522A06049200C28413 /* WidgetContainerView.swift in Sources */,
+				6C800BB82A035EC50010CA63 /* CanvasViewController.swift in Sources */,
 				6C64E0AE29FF8CA600EA9262 /* TaskCreationView.swift in Sources */,
+				6C800BBC2A035F000010CA63 /* CanvasViewControllerRepresentable.swift in Sources */,
 				6C64E0AA29FF8C6600EA9262 /* WeekCalendarView.swift in Sources */,
 				6C64E0AC29FF8C8E00EA9262 /* WeekCalendarCellView.swift in Sources */,
 				6C64E0A229FF8B5D00EA9262 /* MonthCalendarView.swift in Sources */,
 				6C64E0B32A022A8D00EA9262 /* QRScannerView.swift in Sources */,
 				6C64E0A029FF8B4C00EA9262 /* CalendarHelper.swift in Sources */,
+				6C800BC22A0364340010CA63 /* AddNoteSheet.swift in Sources */,
 				6C322BDE29F9E05B0022CE1E /* HomeView.swift in Sources */,
+				6C800BC02A03608C0010CA63 /* NoteRowView.swift in Sources */,
 				6C322BE029F9E0810022CE1E /* DataModels.swift in Sources */,
 				6C64E09D29FF879000EA9262 /* DataManager.swift in Sources */,
 				6C64E0B12A0229FB00EA9262 /* QRScanView.swift in Sources */,
 				6C322BCC29F9DF960022CE1E /* ContentView.swift in Sources */,
 				6C322BE329F9E0990022CE1E /* NinjaModel.xcdatamodeld in Sources */,
+				6C800BBA2A035EE50010CA63 /* DrawingView.swift in Sources */,
 				6C64E0A629FF8BA200EA9262 /* MonthDateScrollerView.swift in Sources */,
 				6C322BCA29F9DF960022CE1E /* ninja5App.swift in Sources */,
 			);

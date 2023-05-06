@@ -22,12 +22,14 @@ struct WeekCalendarView: View {
 
     var body: some View {
         ScrollViewReader { scrollView in
-            VStack (spacing:0) {
+            VStack (alignment:.leading, spacing:0) {
                 HStack {
-                    Text(displayedMonth)
-                        .font(.headline)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading)
+                    monthHeader(displayedMonth)
+                    Spacer()
+//                    Text(displayedMonth)
+//                        .font(.headline)
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+//                        .padding(.leading)
                     
                     Button(action: {
                         showingTaskCreationView.toggle()
@@ -63,6 +65,21 @@ struct WeekCalendarView: View {
         }
     }
     
+    func monthHeader(_ month: String) -> some View {
+        HStack {
+            Text("Calendar  ")
+                .font(.headline)
+            Text(month)
+                .foregroundColor(.white)
+                .font(.headline)
+                .padding(.horizontal, 8) // Add some horizontal padding to make the rectangle a bit wider than the text
+                .padding(.vertical, 4) // Add some vertical padding to make the rectangle a bit taller than the text
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color.pink))
+            Spacer()
+        }
+    }
+
+    
     func calendarGrid() -> some View {
         GeometryReader { geo in
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -95,7 +112,6 @@ struct WeekCalendarView: View {
         }
     }
 
-
     private func Week(geo: GeometryProxy, weekDate: Date) -> some View {
         HStack(spacing: 1) {
             ForEach(0..<daysInWeek) { dayOffset in
@@ -113,4 +129,3 @@ struct WeekCalendarView: View {
         dateHolder.currentWeekIndex = 0
     }
 }
-
