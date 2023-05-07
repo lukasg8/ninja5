@@ -17,32 +17,34 @@ struct AllNotesView: View {
     
     var body: some View {
         
-        NavigationStack {
-            VStack (alignment: .leading) {
-                Text("All Notes")
-                    .font(.largeTitle)
-                ScrollView {
-                    ForEach(manager.notes.indices, id: \.self) { index in
-                        Text(String(index))
-//                        NavigationLink(value: manager.notes[index], label: { NoteRowView(note: manager.notes[index]) })
-                    }
-                }
-            }
-            .padding(20)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-            .navigationDestination(for: Note.self, destination: { note in DrawingView(manager: manager, id: note.id) })
-            .sheet(isPresented: $addNewNoteShown, content: { AddNoteSheet(manager: manager, addNewNoteShown: $addNewNoteShown) })
-            .toolbar {
-                
-                // Add new note button
-                ToolbarItem (placement: .navigationBarTrailing) {
-                    Button(action: {
-                        self.editShown = false
-                        self.addNewNoteShown.toggle()
-                    }, label: { Image(systemName: "plus")} )
-                }
-            }
-        }
+        Text("Work in progress!")
+        
+//        NavigationStack {
+//            VStack (alignment: .leading) {
+//                Text("All Notes")
+//                    .font(.largeTitle)
+//                ScrollView {
+//                    ForEach(manager.notes.indices, id: \.self) { index in
+//                        Text(String(index))
+////                        NavigationLink(value: manager.notes[index], label: { NoteRowView(note: manager.notes[index]) })
+//                    }
+//                }
+//            }
+//            .padding(20)
+//            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+//            .navigationDestination(for: Note.self, destination: { note in DrawingView(manager: manager, id: note.id) })
+//            .sheet(isPresented: $addNewNoteShown, content: { AddNoteSheet(manager: manager, addNewNoteShown: $addNewNoteShown) })
+//            .toolbar {
+//
+//                // Add new note button
+//                ToolbarItem (placement: .navigationBarTrailing) {
+//                    Button(action: {
+//                        self.editShown = false
+//                        self.addNewNoteShown.toggle()
+//                    }, label: { Image(systemName: "plus")} )
+//                }
+//            }
+//        }
         
     }
                 

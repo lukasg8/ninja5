@@ -5,7 +5,7 @@ struct TaskRowView: View {
     @EnvironmentObject var manager: DataManager
     @Binding var task: Task
     @State private var showAlert = false
-    @State private var showDrawingView = false
+    @Binding var showDrawingView: Bool
 
     func colorFromName(_ colorName: String) -> Color {
         switch colorName {
@@ -26,8 +26,18 @@ struct TaskRowView: View {
                 .fill(Color.white)
                 .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 2)
                 
-
-                
+            HStack {
+                Button(action: {
+                    if task.note == nil {
+                        task.note = Note(id: UUID(), canvasData: Data(), title: "Note for \(task.title)", selected: false, folder: nil)
+                        manager.updateTask(updatedTask: task)
+                    }
+                    showDrawingView.toggle()
+                }) {
+                    Image(systemName: "note")
+                        .frame(maxHeight:.infinity)
+                        .padding(.trailing)
+                }
                 VStack(alignment: .leading) {
                     HStack {
                         Text(task.title)
@@ -61,31 +71,23 @@ struct TaskRowView: View {
                         Text(task.description)
                             .font(.subheadline)
                             .foregroundColor(.gray)
-                        
-    //                    Button(action: {
-    //
-    //                    }, label: {
-    //                        Text("Convert to note")
-    //                            .foregroundColor(.white)
-    //                            .background(RoundedRectangle(cornerRadius: 5).fill(Color("LightGray")))
-    //                    })
 
                         Spacer()
                         
-                        Button(action: {
-                            if task.note == nil {
-                                task.note = Note(id: UUID(), canvasData: Data(), title: "Note for \(task.title)", selected: false, folder: nil)
-                                manager.updateTask(updatedTask: task)
-                            }
-                            showDrawingView.toggle()
-                        }) {
-                            Text("Convert to Note")
-                                .foregroundColor(.white)
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 4)
-                                .background(Color.blue)
-                                .cornerRadius(5)
-                        }
+//                        Button(action: {
+//                            if task.note == nil {
+//                                task.note = Note(id: UUID(), canvasData: Data(), title: "Note for \(task.title)", selected: false, folder: nil)
+//                                manager.updateTask(updatedTask: task)
+//                            }
+//                            showDrawingView.toggle()
+//                        }) {
+//                            Text("Convert to Note")
+//                                .foregroundColor(.white)
+//                                .padding(.horizontal, 8)
+//                                .padding(.vertical, 4)
+//                                .background(Color.blue)
+//                                .cornerRadius(5)
+//                        }
 
                         Button(action: {
                             showAlert.toggle()
@@ -107,23 +109,18 @@ struct TaskRowView: View {
                         .padding(.trailing, 12)
                     }
                 }
-                .padding(.horizontal, 12)
-        }
-        .background(
-            NavigationLink(destination: DrawingView(manager: manager, id: task.note?.id ?? UUID()), isActive: $showDrawingView) {
-                EmptyView()
             }
-            .opacity(0) // Hide the NavigationLink
-        )
+            .padding(.horizontal, 12)
+        }
         .frame(height: 70)
         .padding(.horizontal, 8)
     }
 }
 
-struct TaskRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskRowView(task: .constant(Task(id: UUID(), title: "Sample Task", description: "Description for task", date: Date(), folder: Folder(id: UUID(), name: "Sample Folder", colorName: "blue", notes: [], tasks: [], subfolders: []), completed: false)))
-            .previewLayout(.sizeThatFits)
-            .environmentObject(DataManager())
-    }
-}
+//struct TaskRowView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TaskRowView(task: .constant(Task(id: UUID(), title: "Sample Task", description: "Description for task", date: Date(), folder: Folder(id: UUID(), name: "Sample Folder", colorName: "blue", notes: [], tasks: [], subfolders: []), completed: false)))
+//            .previewLayout(.sizeThatFits)
+//            .environmentObject(DataManager())
+//    }
+//}

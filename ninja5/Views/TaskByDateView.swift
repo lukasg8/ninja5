@@ -8,6 +8,7 @@ struct TasksByDateView: View {
     @State private var tasks: [Task] = []
     @State private var showingQR: Bool = false
     @State private var showAddTaskSheet: Bool = false
+    @State private var showDrawingView = false
     
     let studentName:String
 
@@ -113,7 +114,7 @@ struct TasksByDateView: View {
 
                                     ForEach(filteredIndices, id: \.self) { index in
                                         if showCompleted || !manager.tasks[index].completed {
-                                            TaskRowView(task: $manager.tasks[index])
+                                            TaskRowView(task: $manager.tasks[index], showDrawingView: $showDrawingView)
                                         }
                                     }
                                 }
@@ -121,6 +122,12 @@ struct TasksByDateView: View {
                         }
                     }
                 }
+                .background(
+                    NavigationLink(destination: DrawingView(manager: manager, id: tasks.first(where: { $0.note != nil })?.note?.id ?? UUID()), isActive: $showDrawingView) {
+                        EmptyView()
+                    }
+                    .opacity(0) // Hide the NavigationLink
+                )
                 .padding(.top,0)
                 .padding(.horizontal)
             }
