@@ -75,10 +75,12 @@ extension Folder: Equatable { }
 
 
 struct Task: Identifiable, Codable {
-    let id:UUID
+    let id: UUID
     var title: String
+    var description: String
     var date: Date
     var folder: Folder?
+    var completed: Bool
 }
 
 

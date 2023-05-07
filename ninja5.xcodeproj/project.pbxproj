@@ -35,6 +35,8 @@
 		6C800BBE2A035F790010CA63 /* AllNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C800BBD2A035F790010CA63 /* AllNotesView.swift */; };
 		6C800BC02A03608C0010CA63 /* NoteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C800BBF2A03608C0010CA63 /* NoteRowView.swift */; };
 		6C800BC22A0364340010CA63 /* AddNoteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C800BC12A0364340010CA63 /* AddNoteSheet.swift */; };
+		8C0F96172A06C38D0026E670 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F96162A06C38D0026E670 /* TaskRowView.swift */; };
+		8C0F96192A06C58F0026E670 /* TaskByDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F96182A06C58F0026E670 /* TaskByDateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		6C800BBD2A035F790010CA63 /* AllNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotesView.swift; sourceTree = "<group>"; };
 		6C800BBF2A03608C0010CA63 /* NoteRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRowView.swift; sourceTree = "<group>"; };
 		6C800BC12A0364340010CA63 /* AddNoteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteSheet.swift; sourceTree = "<group>"; };
+		8C0F96162A06C38D0026E670 /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
+		8C0F96182A06C58F0026E670 /* TaskByDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskByDateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,8 @@
 				6C64E09E29FF8B2700EA9262 /* CalendarViews */,
 				6C800BB62A035EB00010CA63 /* DrawingViews */,
 				6C1E2F512A06049200C28413 /* WidgetContainerView.swift */,
+				8C0F96162A06C38D0026E670 /* TaskRowView.swift */,
+				8C0F96182A06C58F0026E670 /* TaskByDateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -294,11 +300,13 @@
 				6C800BBE2A035F790010CA63 /* AllNotesView.swift in Sources */,
 				6C1E2F522A06049200C28413 /* WidgetContainerView.swift in Sources */,
 				6C800BB82A035EC50010CA63 /* CanvasViewController.swift in Sources */,
+				8C0F96192A06C58F0026E670 /* TaskByDateView.swift in Sources */,
 				6C64E0AE29FF8CA600EA9262 /* TaskCreationView.swift in Sources */,
 				6C800BBC2A035F000010CA63 /* CanvasViewControllerRepresentable.swift in Sources */,
 				6C64E0AA29FF8C6600EA9262 /* WeekCalendarView.swift in Sources */,
 				6C64E0AC29FF8C8E00EA9262 /* WeekCalendarCellView.swift in Sources */,
 				6C64E0A229FF8B5D00EA9262 /* MonthCalendarView.swift in Sources */,
+				8C0F96172A06C38D0026E670 /* TaskRowView.swift in Sources */,
 				6C64E0B32A022A8D00EA9262 /* QRScannerView.swift in Sources */,
 				6C64E0A029FF8B4C00EA9262 /* CalendarHelper.swift in Sources */,
 				6C800BC22A0364340010CA63 /* AddNoteSheet.swift in Sources */,
@@ -443,7 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ninja5/Preview Content\"";
-				DEVELOPMENT_TEAM = KAN7CPJNZ3;
+				DEVELOPMENT_TEAM = JZ7KH4GFGF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -452,6 +460,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,7 +482,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ninja5/Preview Content\"";
-				DEVELOPMENT_TEAM = KAN7CPJNZ3;
+				DEVELOPMENT_TEAM = JZ7KH4GFGF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -482,6 +491,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

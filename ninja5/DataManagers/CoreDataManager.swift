@@ -260,7 +260,7 @@ class CoreDataManager {
         do {
             let result = try persistentContainer.viewContext.fetch(request)
             for data in result {
-                fetchResults.append(Task(id: data.id ?? UUID(), title: data.title ?? "Untitled Task", date: data.date ?? Date()))
+                fetchResults.append(Task(id: UUID(), title: "Sample Task 1", description: "Task description 1", date: Date(), folder: nil, completed: false))
             }
         } catch {
             print("Fetching Task failed.")

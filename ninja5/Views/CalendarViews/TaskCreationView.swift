@@ -60,7 +60,7 @@ struct TaskCreationView: View {
                 presentationMode.wrappedValue.dismiss()
             }, trailing: Button("Save") {
                 if let selectedFolder = selectedFolder, !taskTitle.isEmpty {
-                    let task = Task(id: UUID(), title: taskTitle, date: taskDate, folder: selectedFolder)
+                    let task = Task(id: UUID(), title: "Sample Task 3", description: "Task description 3", date: Date(), completed: false)
                     onTaskAdded(task)
                 }
                 presentationMode.wrappedValue.dismiss()

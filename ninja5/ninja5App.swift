@@ -9,12 +9,11 @@ import SwiftUI
 
 @main
 struct ninja5App: App {
-    
     let manager = DataManager()
-    
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TasksByDateView()
                 .environmentObject(manager)
         }
     }
