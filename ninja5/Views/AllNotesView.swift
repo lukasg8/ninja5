@@ -23,7 +23,7 @@ struct AllNotesView: View {
                     .font(.largeTitle)
                 ScrollView {
                     ForEach(manager.notes.indices, id: \.self) { index in
-                        NavigationLink(value: manager.notes[index], label: { NoteRowView(note: manager.notes[index]) })
+                        //NavigationLink(value: manager.notes[index], label: { NoteRowView(note: manager.notes[index]) })
                     }
                 }
             }

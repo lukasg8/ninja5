@@ -24,45 +24,57 @@ struct NoteRowView: View {
                 .fill(Color.white)
                 .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 2)
 
-            VStack(alignment: .leading) {
-                HStack {
-                    Text(note.title)
-                        .font(.system(size: 18, weight: .semibold))
+            HStack {
+                Image(systemName: "note.text")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(8)
+                    .foregroundColor(.gray)
 
-                    Text(note.folder?.name ?? "No Folder")
-                        .font(.system(size: 14, weight: .bold))
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, 2)
-                        .background(colorFromName(note.folder?.colorName ?? "gray"))
-                        .cornerRadius(4)
-                        .foregroundColor(.white)
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(note.title)
+                            .font(.system(size: 18, weight: .semibold))
 
-                    Spacer()
-                }
+                        Text(note.folder?.name ?? "No Folder")
+                            .font(.system(size: 14, weight: .bold))
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(colorFromName(note.folder?.colorName ?? "gray"))
+                            .cornerRadius(4)
+                            .foregroundColor(.white)
 
-                HStack {
-                    Spacer()
+                        Spacer()
+                    }
 
-                    Button(action: {
-                        showAlert.toggle()
-                    }) {
-                        Image(systemName: "trash")
+                    HStack {
+                        Text("Note description 1")
+                            .font(.subheadline)
                             .foregroundColor(.gray)
+
+                        Spacer()
+
+                        Button(action: {
+                            showAlert.toggle()
+                        }) {
+                            Image(systemName: "trash")
+                                .foregroundColor(.gray)
+                        }
+                        .alert(isPresented: $showAlert) {
+                            Alert(title: Text("Delete Note"),
+                                  message: Text("Are you sure you want to delete this note?"),
+                                  primaryButton: .destructive(Text("Delete")) {
+                                      if let index = manager.notes.firstIndex(where: { $0.id == note.id }) {
+                                          manager.deleteNote(for: index)
+                                      }
+                                  },
+                                  secondaryButton: .cancel())
+                        }
+                        .padding(.trailing, 12)
                     }
-                    .alert(isPresented: $showAlert) {
-                        Alert(title: Text("Delete Note"),
-                              message: Text("Are you sure you want to delete this note?"),
-                              primaryButton: .destructive(Text("Delete")) {
-                                  if let index = manager.notes.firstIndex(where: { $0.id == note.id }) {
-                                      manager.deleteNote(for: index)
-                                  }
-                              },
-                              secondaryButton: .cancel())
-                    }
-                    .padding(.trailing, 12)
                 }
+                .padding(.horizontal, 12)
             }
-            .padding(.horizontal, 12)
         }
         .frame(height: 70)
         .padding(.horizontal, 8)

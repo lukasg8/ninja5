@@ -13,8 +13,8 @@ struct ninja5App: App {
 
     var body: some Scene {
         WindowGroup {
-            NoteRowView(note: .constant(Note(id: UUID(), canvasData: Data(), title: "Sample Note", selected: false, folder: Folder(id: UUID(), name: "Sample Folder", colorName: "blue", notes: [], tasks: [], subfolders: []))))
-                .environmentObject(manager)
+           NoteRowView(note: .constant(Note(id: UUID(), canvasData: Data(), title: "Sample Note", selected: false, folder: Folder(id: UUID(), name: "Sample Folder", colorName: "blue", notes: [], tasks: [], subfolders: []))))
+               .environmentObject(manager)
         }
     }
 }
