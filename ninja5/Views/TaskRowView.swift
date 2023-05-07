@@ -1,9 +1,11 @@
 import SwiftUI
+import PencilKit
 
 struct TaskRowView: View {
     @EnvironmentObject var manager: DataManager
     @Binding var task: Task
     @State private var showAlert = false
+    @State private var showDrawingView = false
 
     func colorFromName(_ colorName: String) -> Color {
         switch colorName {
@@ -23,64 +25,96 @@ struct TaskRowView: View {
             RoundedRectangle(cornerRadius: 8)
                 .fill(Color.white)
                 .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 2)
+                
 
-            VStack(alignment: .leading) {
-                HStack {
-                    Text(task.title)
-                        .strikethrough(task.completed)
-                        .foregroundColor(task.completed ? .gray : .primary)
-                        .font(.system(size: 18, weight: .semibold))
+                
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(task.title)
+                            .strikethrough(task.completed)
+                            .foregroundColor(task.completed ? .gray : .primary)
+                            .font(.system(size: 18, weight: .semibold))
 
-                    Text(task.folder?.name ?? "No Folder")
-                        .font(.system(size: 14, weight: .bold))
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, 2)
-                        .background(colorFromName(task.folder?.colorName ?? "gray"))
-                        .cornerRadius(4)
-                        .foregroundColor(.white)
+                        Text(task.folder?.name ?? "No Folder")
+                            .font(.system(size: 14, weight: .bold))
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(colorFromName(task.folder?.colorName ?? "gray"))
+                            .cornerRadius(4)
+                            .foregroundColor(.white)
 
-                    Spacer()
+                        Spacer()
 
-                    Button(action: {
-                        task.completed.toggle()
-                        manager.updateTask(updatedTask: task)
-                    }) {
-                        Image(systemName: task.completed ? "checkmark.circle" : "circle")
-                            .resizable()
-                            .frame(width: 24, height: 24)
-                            .foregroundColor(task.completed ? .blue : .gray)
+                        Button(action: {
+                            task.completed.toggle()
+                            manager.updateTask(updatedTask: task)
+                        }) {
+                            Image(systemName: task.completed ? "checkmark.circle" : "circle")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                                .foregroundColor(task.completed ? .blue : .gray)
+                        }
+                        .padding(.trailing, 12)
                     }
-                    .padding(.trailing, 12)
-                }
 
-                HStack {
-                    Text(task.description)
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-
-                    Spacer()
-
-                    Button(action: {
-                        showAlert.toggle()
-                    }) {
-                        Image(systemName: "trash")
+                    HStack {
+                        Text(task.description)
+                            .font(.subheadline)
                             .foregroundColor(.gray)
+                        
+    //                    Button(action: {
+    //
+    //                    }, label: {
+    //                        Text("Convert to note")
+    //                            .foregroundColor(.white)
+    //                            .background(RoundedRectangle(cornerRadius: 5).fill(Color("LightGray")))
+    //                    })
+
+                        Spacer()
+                        
+                        Button(action: {
+                            if task.note == nil {
+                                task.note = Note(id: UUID(), canvasData: Data(), title: "Note for \(task.title)", selected: false, folder: nil)
+                                manager.updateTask(updatedTask: task)
+                            }
+                            showDrawingView.toggle()
+                        }) {
+                            Text("Convert to Note")
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .background(Color.blue)
+                                .cornerRadius(5)
+                        }
+
+                        Button(action: {
+                            showAlert.toggle()
+                        }) {
+                            Image(systemName: "trash")
+                                .foregroundColor(.gray)
+                                .padding(.trailing,2)
+                        }
+                        .alert(isPresented: $showAlert) {
+                            Alert(title: Text("Delete Task"),
+                                  message: Text("Are you sure you want to delete this task?"),
+                                  primaryButton: .destructive(Text("Delete")) {
+                                      if let index = manager.tasks.firstIndex(where: { $0.id == task.id }) {
+                                          manager.deleteTask(for: index)
+                                      }
+                                  },
+                                  secondaryButton: .cancel())
+                        }
+                        .padding(.trailing, 12)
                     }
-                    .alert(isPresented: $showAlert) {
-                        Alert(title: Text("Delete Task"),
-                              message: Text("Are you sure you want to delete this task?"),
-                              primaryButton: .destructive(Text("Delete")) {
-                                  if let index = manager.tasks.firstIndex(where: { $0.id == task.id }) {
-                                      manager.deleteTask(for: index)
-                                  }
-                              },
-                              secondaryButton: .cancel())
-                    }
-                    .padding(.trailing, 12)
                 }
-            }
-            .padding(.horizontal, 12)
+                .padding(.horizontal, 12)
         }
+        .background(
+            NavigationLink(destination: DrawingView(manager: manager, id: task.note?.id ?? UUID()), isActive: $showDrawingView) {
+                EmptyView()
+            }
+            .opacity(0) // Hide the NavigationLink
+        )
         .frame(height: 70)
         .padding(.horizontal, 8)
     }

@@ -81,6 +81,7 @@ struct Task: Identifiable, Codable {
     var date: Date
     var folder: Folder?
     var completed: Bool
+    var note:Note?
 }
 
 

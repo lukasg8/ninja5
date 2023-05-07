@@ -28,8 +28,8 @@ class DataManager: ObservableObject {
         folders.append(sampleFolder2)
         folders.append(sampleFolder3)
         folders.append(sampleFolder4)
-            tasks = generateSampleTasks()
-        }
+//        tasks = generateSampleTasks()
+    }
 
     
     // MARK: Note functions

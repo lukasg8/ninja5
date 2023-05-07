@@ -78,9 +78,6 @@ struct HomeView: View {
         NavigationStack {
             
             VStack (alignment:.leading) {
-//                Text("Welcome \(studentName)")
-//                    .font(.title)
-//                    .bold()
                 TasksByDateView(studentName: studentName)
                     .environmentObject(manager)
                 Spacer()

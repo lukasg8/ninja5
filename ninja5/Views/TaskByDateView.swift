@@ -7,6 +7,7 @@ struct TasksByDateView: View {
     @State private var selectedFolder: Folder?
     @State private var tasks: [Task] = []
     @State private var showingQR: Bool = false
+    @State private var showAddTaskSheet: Bool = false
     
     let studentName:String
 
@@ -56,6 +57,14 @@ struct TasksByDateView: View {
                     updateTaskList()
                 }
                 
+                // Add task
+                Button(action: {
+                    showAddTaskSheet = true
+                }, label: {
+                    Image(systemName: "plus")
+                })
+                .padding(.trailing)
+                
                 // QR Code
                 Button(action: {
                     showingQR = true
@@ -65,6 +74,7 @@ struct TasksByDateView: View {
                 .padding(.trailing)
                 
             }
+            .padding(.bottom,0)
             .padding(.top)
             .sheet(isPresented: $showingQR, content: {
                 QRCodeScannerView { code in
@@ -72,27 +82,47 @@ struct TasksByDateView: View {
                     showingQR = false
                 }
             })
+            .sheet(isPresented: $showAddTaskSheet) {
+                AddTaskSheet()
+                    .environmentObject(manager)
+            }
+            .onChange(of: showAddTaskSheet) { isPresented in
+                if !isPresented {
+                    updateTaskList()
+                }
+            }
             
             ScrollView {
                 VStack(spacing: 16) {
-                    ForEach(datesWithTasks(), id: \.self) { date in
-                        let filteredIndices = filteredTasksIndices(for: date)
-                        if !filteredIndices.isEmpty {
-                            VStack(alignment: .leading, spacing: 12) {
-                                Text(dateString(from: date))
-                                    .font(.title2)
-                                    .bold()
+                    
+                    if manager.tasks.isEmpty {
+                        VStack {
+                            Spacer()
+                            Text("Congratulations! You have no tasks at the moment.")
+                                .font(.system(size:15))
+                        }
+                        .frame(maxHeight:.infinity)
+                    } else {
+                        ForEach(datesWithTasks(), id: \.self) { date in
+                            let filteredIndices = filteredTasksIndices(for: date)
+                            if !filteredIndices.isEmpty {
+                                VStack(alignment: .leading, spacing: 12) {
+                                    Text(dateString(from: date))
+                                        .font(.title2)
+                                        .bold()
 
-                                ForEach(filteredIndices, id: \.self) { index in
-                                    if showCompleted || !manager.tasks[index].completed {
-                                        TaskRowView(task: $manager.tasks[index])
+                                    ForEach(filteredIndices, id: \.self) { index in
+                                        if showCompleted || !manager.tasks[index].completed {
+                                            TaskRowView(task: $manager.tasks[index])
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
-                .padding()
+                .padding(.top,0)
+                .padding(.horizontal)
             }
         }
         .onAppear {

@@ -46,7 +46,7 @@ struct ContentView: View {
 //            }
 //        })
 //        .navigationSplitViewStyle(.prominentDetail)
-        
+                
         TabView(selection: $selectedTab) {
             HomeView()
                 .environmentObject(manager)
