@@ -189,7 +189,7 @@ struct TasksByDateView: View {
     }
 
     private func datesWithTasks() -> [Date] {
-        let uniqueDates = Set(tasks.map { Calendar.current.startOfDay(for: $0.date) })
+        let uniqueDates = Set(manager.tasks.map { Calendar.current.startOfDay(for: $0.date) })
         return uniqueDates.sorted()
     }
 
