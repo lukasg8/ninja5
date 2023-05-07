@@ -30,10 +30,10 @@
 		6C800BBA2A035EE50010CA63 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C800BB92A035EE50010CA63 /* DrawingView.swift */; };
 		6C800BBC2A035F000010CA63 /* CanvasViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C800BBB2A035F000010CA63 /* CanvasViewControllerRepresentable.swift */; };
 		6C800BBE2A035F790010CA63 /* AllNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C800BBD2A035F790010CA63 /* AllNotesView.swift */; };
-		6C800BC02A03608C0010CA63 /* NoteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C800BBF2A03608C0010CA63 /* NoteRowView.swift */; };
 		6C800BC22A0364340010CA63 /* AddNoteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C800BC12A0364340010CA63 /* AddNoteSheet.swift */; };
 		8C0F96172A06C38D0026E670 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F96162A06C38D0026E670 /* TaskRowView.swift */; };
 		8C0F96192A06C58F0026E670 /* TaskByDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F96182A06C58F0026E670 /* TaskByDateView.swift */; };
+		8C1127C32A08090B00137899 /* NoteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1127C22A08090B00137899 /* NoteRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,10 +61,10 @@
 		6C800BB92A035EE50010CA63 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 		6C800BBB2A035F000010CA63 /* CanvasViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		6C800BBD2A035F790010CA63 /* AllNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotesView.swift; sourceTree = "<group>"; };
-		6C800BBF2A03608C0010CA63 /* NoteRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRowView.swift; sourceTree = "<group>"; };
 		6C800BC12A0364340010CA63 /* AddNoteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteSheet.swift; sourceTree = "<group>"; };
 		8C0F96162A06C38D0026E670 /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
 		8C0F96182A06C58F0026E670 /* TaskByDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskByDateView.swift; sourceTree = "<group>"; };
+		8C1127C22A08090B00137899 /* NoteRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,13 +123,13 @@
 				6C322BCB29F9DF960022CE1E /* ContentView.swift */,
 				6C322BDD29F9E05B0022CE1E /* HomeView.swift */,
 				6C800BBD2A035F790010CA63 /* AllNotesView.swift */,
-				6C800BBF2A03608C0010CA63 /* NoteRowView.swift */,
 				6C800BC12A0364340010CA63 /* AddNoteSheet.swift */,
 				6C64E09E29FF8B2700EA9262 /* CalendarViews */,
 				6C800BB62A035EB00010CA63 /* DrawingViews */,
 				6C1E2F512A06049200C28413 /* WidgetContainerView.swift */,
 				8C0F96162A06C38D0026E670 /* TaskRowView.swift */,
 				8C0F96182A06C58F0026E670 /* TaskByDateView.swift */,
+				8C1127C22A08090B00137899 /* NoteRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -294,8 +294,8 @@
 				6C64E0A029FF8B4C00EA9262 /* CalendarHelper.swift in Sources */,
 				6C800BC22A0364340010CA63 /* AddNoteSheet.swift in Sources */,
 				6C322BDE29F9E05B0022CE1E /* HomeView.swift in Sources */,
-				6C800BC02A03608C0010CA63 /* NoteRowView.swift in Sources */,
 				6C322BE029F9E0810022CE1E /* DataModels.swift in Sources */,
+				8C1127C32A08090B00137899 /* NoteRowView.swift in Sources */,
 				6C64E09D29FF879000EA9262 /* DataManager.swift in Sources */,
 				6C64E0B12A0229FB00EA9262 /* QRScanView.swift in Sources */,
 				6C322BCC29F9DF960022CE1E /* ContentView.swift in Sources */,
