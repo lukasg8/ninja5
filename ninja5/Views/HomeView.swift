@@ -190,7 +190,6 @@ struct HomeView: View {
         do {
             let tasks = try decoder.decode([Task].self, from: data)
             DispatchQueue.main.async {
-//                self.tasks = tasks
                 for task in tasks {
                     manager.addTask(task: task)
                 }
@@ -201,6 +200,8 @@ struct HomeView: View {
             print("Decoding error details: \(error)")
         }
     }
+
+    
 }
 
 
