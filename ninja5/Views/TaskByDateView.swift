@@ -6,6 +6,7 @@ struct TasksByDateView: View {
     @State private var showCompleted = false
     @State private var selectedFolder: Folder?
     @State private var tasks: [Task] = []
+    @State private var showingQR: Bool = false
     
     let studentName:String
 
@@ -50,12 +51,27 @@ struct TasksByDateView: View {
                     }
                 }
                 .pickerStyle(MenuPickerStyle())
-                .padding(.trailing)
+                .padding()
                 .onChange(of: selectedFolder) { _ in
                     updateTaskList()
                 }
+                
+                // QR Code
+                Button(action: {
+                    showingQR = true
+                }, label: {
+                    Image(systemName: "qrcode")
+                })
+                .padding(.trailing)
+                
             }
             .padding(.top)
+            .sheet(isPresented: $showingQR, content: {
+                QRCodeScannerView { code in
+                    fetchTask(from: code)
+                    showingQR = false
+                }
+            })
             
             ScrollView {
                 VStack(spacing: 16) {
@@ -81,6 +97,53 @@ struct TasksByDateView: View {
         }
         .onAppear {
             updateTaskList()
+        }
+    }
+    
+    
+    func fetchTask(from url: String) {
+        guard let taskURL = URL(string: url) else {
+            print("Invalid URL")
+            return
+        }
+
+        URLSession.shared.dataTask(with: taskURL) { data, response, error in
+            if let error = error {
+                print("Error fetching data: \(error.localizedDescription)")
+                return
+            }
+
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+
+            // Print the fetched data for debugging
+            if let jsonString = String(data: data, encoding: .utf8) {
+                print("Fetched JSON data: \(jsonString)")
+            }
+
+            parseTaskJSON(data: data)
+        }.resume()
+    }
+
+
+    func parseTaskJSON(data: Data) {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+
+        do {
+            let tasks = try decoder.decode([Task].self, from: data)
+            DispatchQueue.main.async {
+//                self.tasks = tasks
+                for task in tasks {
+                    manager.addTask(task: task)
+                }
+                print("Imported tasks: \(tasks)")
+            }
+        } catch {
+            print("Error decoding JSON data: \(error.localizedDescription)")
+            print("Decoding error details: \(error)")
         }
     }
 

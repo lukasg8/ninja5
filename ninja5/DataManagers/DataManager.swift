@@ -14,16 +14,20 @@ class DataManager: ObservableObject {
     @Published var folders: [Folder]
     
     init() {
-            notes = CoreDataManager.shared.getNoteData()
-            tasks = []
-            folders = CoreDataManager.shared.getFolderData()
+        notes = CoreDataManager.shared.getNoteData()
+        tasks = []
+        folders = CoreDataManager.shared.getFolderData()
 
-            // Add sample folders for testing
-            let sampleFolder1 = Folder(id: UUID(), name: "Sample Folder 1", colorName: "blue", notes: [], tasks: [], subfolders: [])
-            let sampleFolder2 = Folder(id: UUID(), name: "Sample Folder 2", colorName: "green", notes: [], tasks: [], subfolders: [])
-            folders.append(sampleFolder1)
-            folders.append(sampleFolder2)
+        // Add sample folders for testing
+        let sampleFolder1 = Folder(id: UUID(), name: "CMSC 27200", colorName: "blue", notes: [], tasks: [], subfolders: [])
+        let sampleFolder2 = Folder(id: UUID(), name: "PHIL 23200", colorName: "green", notes: [], tasks: [], subfolders: [])
+        let sampleFolder3 = Folder(id: UUID(), name: "SOSC 14300", colorName: "purple", notes: [], tasks: [], subfolders: [])
+        let sampleFolder4 = Folder(id: UUID(), name: "PHYS 12100", colorName: "red", notes: [], tasks: [], subfolders: [])
 
+        folders.append(sampleFolder1)
+        folders.append(sampleFolder2)
+        folders.append(sampleFolder3)
+        folders.append(sampleFolder4)
             tasks = generateSampleTasks()
         }
 

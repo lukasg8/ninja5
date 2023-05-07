@@ -15,7 +15,6 @@ let dateFormatter: DateFormatter = {
 }()
 
 
-
 struct QRScanView: View {
     @State private var isShowingScanner = false
         @State private var importedTasks: [Task] = []
