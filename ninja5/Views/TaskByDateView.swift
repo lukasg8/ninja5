@@ -3,21 +3,40 @@ import SwiftUI
 struct TasksByDateView: View {
     @EnvironmentObject var manager: DataManager
     
-    @State private var showCompleted = true
+    @State private var showCompleted = false
     @State private var selectedFolder: Folder?
     @State private var tasks: [Task] = []
+    
+    let studentName:String
 
     var body: some View {
         VStack {
             HStack {
+                
+                Text("Welcome \(studentName)")
+                    .font(.title)
+                    .bold()
+                
                 Spacer()
                 
-                Text("Show Completed")
-                    .font(.system(size: 16, weight: .semibold))
-                    .foregroundColor(.primary)
-                    .padding()
-                
-                Toggle(isOn: $showCompleted) {
+                Button(action: {
+                    showCompleted.toggle()
+                }) {
+                    if showCompleted {
+                        Text("Hide completed")
+                            .font(.headline)
+                            .foregroundColor(showCompleted ? .blue : .white)
+                            .padding(8)
+                            .background(showCompleted ? Color.gray.opacity(0.2) : .blue)
+                            .cornerRadius(10)
+                    } else {
+                        Text("Show completed")
+                            .font(.headline)
+                            .foregroundColor(showCompleted ? .blue : .white)
+                            .padding(8)
+                            .background(showCompleted ? Color.gray.opacity(0.2) : .blue)
+                            .cornerRadius(10)
+                    }
                 }
                 .onChange(of: showCompleted) { _ in
                     updateTaskList()
@@ -81,7 +100,6 @@ struct TasksByDateView: View {
         }
     }
 
-
     private func dateString(from date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
@@ -91,8 +109,11 @@ struct TasksByDateView: View {
 }
 
 struct TasksByDateView_Previews: PreviewProvider {
+    
+    static var studentName = "Lukas"
+    
     static var previews: some View {
-        TasksByDateView()
+        TasksByDateView(studentName: studentName)
             .previewLayout(.sizeThatFits)
             .environmentObject(DataManager())
     }

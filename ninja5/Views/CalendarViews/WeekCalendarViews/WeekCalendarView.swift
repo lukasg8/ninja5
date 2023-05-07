@@ -13,7 +13,6 @@ struct WeekCalendarView: View {
     @EnvironmentObject var manager: DataManager
     
     @State private var displayedMonth: String = ""
-//    @State var tasks: [Task] = []
     @State private var showingTaskCreationView: Bool = false
     
     let daysInWeek: Int = 7

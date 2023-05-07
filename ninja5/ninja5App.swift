@@ -13,8 +13,12 @@ struct ninja5App: App {
 
     var body: some Scene {
         WindowGroup {
-            TasksByDateView()
+            
+            ContentView()
                 .environmentObject(manager)
+            
+//            TasksByDateView()
+//                .environmentObject(manager)
         }
     }
 }

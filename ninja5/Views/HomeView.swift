@@ -53,27 +53,40 @@ struct HomeView: View {
     
     var body: some View {
         
-        NavigationSplitView(sidebar: {
-            SidebarView()
-                .navigationTitle("Folders")
-        }, detail: {
+//        NavigationSplitView(sidebar: {
+//            SidebarView()
+//                .navigationTitle("Folders")
+//        }, detail: {
+//
+//            NavigationStack {
+//                VStack (alignment:.leading) {
+//                    HStack (alignment:.top) {
+//                        VStack (alignment:.leading) {
+//                            Text("Tasks")
+//                        }
+//                        VStack (alignment:.leading) {
+//                            Text("Calendar")
+//                            VerticalCalendarView()
+//                                .environmentObject(manager)
+//                                .environmentObject(dateHolder)
+//                        }
+//                    }
+//                    Spacer()
+//                }
+//            }
+        
+        NavigationStack {
             
-            NavigationStack {
-                VStack (alignment:.leading) {
-                    HStack (alignment:.top) {
-                        VStack (alignment:.leading) {
-                            Text("Tasks")
-                        }
-                        VStack (alignment:.leading) {
-                            Text("Calendar")
-                            VerticalCalendarView()
-                                .environmentObject(manager)
-                                .environmentObject(dateHolder)
-                        }
-                    }
-                    Spacer()
-                }
+            VStack (alignment:.leading) {
+//                Text("Welcome \(studentName)")
+//                    .font(.title)
+//                    .bold()
+                TasksByDateView(studentName: studentName)
+                    .environmentObject(manager)
+                Spacer()
             }
+            .padding()
+        }
             
             
             
@@ -142,8 +155,8 @@ struct HomeView: View {
 //                    .padding()
 //                }
 //            }
-        })
-        .navigationSplitViewStyle(.prominentDetail)
+//        })
+//        .navigationSplitViewStyle(.prominentDetail)
     }
     
     func fetchTask(from url: String) {
