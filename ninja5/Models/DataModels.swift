@@ -81,7 +81,19 @@ struct Task: Identifiable, Codable {
     var date: Date
     var folder: Folder?
     var completed: Bool
+    var note: Note?
+
+    init(id: UUID, title: String, description: String, date: Date, folder: Folder?, completed: Bool) {
+        self.id = id
+        self.title = title
+        self.description = description
+        self.date = date
+        self.folder = folder
+        self.completed = completed
+        self.note = nil
+    }
 }
+
 
 
 struct Note: Identifiable, Hashable, Codable {
