@@ -12,12 +12,21 @@ class DataManager: ObservableObject {
     @Published var notes: [Note]
     @Published var tasks: [Task]
     @Published var folders: [Folder]
-
+    
     init() {
-        notes = CoreDataManager.shared.getNoteData()
-        tasks = CoreDataManager.shared.getTaskData()
-        folders = CoreDataManager.shared.getFolderData()
-    }
+            notes = CoreDataManager.shared.getNoteData()
+            tasks = []
+            folders = CoreDataManager.shared.getFolderData()
+
+            // Add sample folders for testing
+            let sampleFolder1 = Folder(id: UUID(), name: "Sample Folder 1", colorName: "blue", notes: [], tasks: [], subfolders: [])
+            let sampleFolder2 = Folder(id: UUID(), name: "Sample Folder 2", colorName: "green", notes: [], tasks: [], subfolders: [])
+            folders.append(sampleFolder1)
+            folders.append(sampleFolder2)
+
+            tasks = generateSampleTasks()
+        }
+
     
     // MARK: Note functions
     func updateCanvasData(canvasData:Data, for id: UUID) {
@@ -86,6 +95,30 @@ class DataManager: ObservableObject {
         CoreDataManager.shared.deleteTask(task: tasks[index])
         tasks.remove(at: index)
     }
+    
+    func filterTasks(showCompleted: Bool, folder: Folder?) -> [Task] {
+            var filteredTasks = tasks
+
+            if !showCompleted {
+                filteredTasks = filteredTasks.filter { !$0.completed }
+            }
+
+            if let folder = folder {
+                filteredTasks = filteredTasks.filter { $0.folder?.id == folder.id }
+            }
+
+            return filteredTasks
+        }
+    
+    func generateSampleTasks() -> [Task] {
+            let sampleTasks = [
+                Task(id: UUID(), title: "Sample Task 1", description: "Task description 1", date: Date(), folder: folders[0], completed: false),
+                Task(id: UUID(), title: "Sample Task 2", description: "Task description 2", date: Date().addingTimeInterval(86400), folder: folders[0], completed: false),
+                Task(id: UUID(), title: "Sample Task 3", description: "Task description 3", date: Date().addingTimeInterval(86400 * 2), folder: folders[1], completed: false)
+            ]
+            return sampleTasks
+        }
+
 
 
 }
