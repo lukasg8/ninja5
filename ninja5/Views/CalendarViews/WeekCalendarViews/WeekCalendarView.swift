@@ -26,10 +26,6 @@ struct WeekCalendarView: View {
                 HStack {
                     monthHeader(displayedMonth)
                     Spacer()
-//                    Text(displayedMonth)
-//                        .font(.headline)
-//                        .frame(maxWidth: .infinity, alignment: .leading)
-//                        .padding(.leading)
                     
                     Button(action: {
                         showingTaskCreationView.toggle()

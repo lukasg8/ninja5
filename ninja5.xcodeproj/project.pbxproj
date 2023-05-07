@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6C1E2F522A06049200C28413 /* WidgetContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1E2F512A06049200C28413 /* WidgetContainerView.swift */; };
+		6C1E2F542A06D18F00C28413 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1E2F532A06D18F00C28413 /* SidebarView.swift */; };
+		6C1E2F572A06E23400C28413 /* VerticalCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1E2F562A06E23400C28413 /* VerticalCalendarView.swift */; };
+		6C1E2F592A06E30800C28413 /* VerticalCalendarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1E2F582A06E30800C28413 /* VerticalCalendarCellView.swift */; };
 		6C322BCA29F9DF960022CE1E /* ninja5App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C322BC929F9DF960022CE1E /* ninja5App.swift */; };
 		6C322BCC29F9DF960022CE1E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C322BCB29F9DF960022CE1E /* ContentView.swift */; };
 		6C322BCE29F9DF980022CE1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C322BCD29F9DF980022CE1E /* Assets.xcassets */; };
@@ -36,6 +39,9 @@
 
 /* Begin PBXFileReference section */
 		6C1E2F512A06049200C28413 /* WidgetContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContainerView.swift; sourceTree = "<group>"; };
+		6C1E2F532A06D18F00C28413 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		6C1E2F562A06E23400C28413 /* VerticalCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCalendarView.swift; sourceTree = "<group>"; };
+		6C1E2F582A06E30800C28413 /* VerticalCalendarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCalendarCellView.swift; sourceTree = "<group>"; };
 		6C322BC629F9DF960022CE1E /* ninja5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ninja5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C322BC929F9DF960022CE1E /* ninja5App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ninja5App.swift; sourceTree = "<group>"; };
 		6C322BCB29F9DF960022CE1E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +80,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C1E2F552A06E21D00C28413 /* VerticalCalendarViews */ = {
+			isa = PBXGroup;
+			children = (
+				6C1E2F562A06E23400C28413 /* VerticalCalendarView.swift */,
+				6C1E2F582A06E30800C28413 /* VerticalCalendarCellView.swift */,
+			);
+			path = VerticalCalendarViews;
+			sourceTree = "<group>";
+		};
 		6C322BBD29F9DF960022CE1E = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				6C322BCB29F9DF960022CE1E /* ContentView.swift */,
+				6C1E2F532A06D18F00C28413 /* SidebarView.swift */,
 				6C322BDD29F9E05B0022CE1E /* HomeView.swift */,
 				6C800BBD2A035F790010CA63 /* AllNotesView.swift */,
 				6C800BBF2A03608C0010CA63 /* NoteRowView.swift */,
@@ -161,6 +177,7 @@
 				6C64E0AD29FF8CA600EA9262 /* TaskCreationView.swift */,
 				6C64E0A729FF8C4600EA9262 /* MonthCalendarViews */,
 				6C64E0A829FF8C5600EA9262 /* WeekCalendarViews */,
+				6C1E2F552A06E21D00C28413 /* VerticalCalendarViews */,
 			);
 			path = CalendarViews;
 			sourceTree = "<group>";
@@ -286,11 +303,14 @@
 				6C64E0A029FF8B4C00EA9262 /* CalendarHelper.swift in Sources */,
 				6C800BC22A0364340010CA63 /* AddNoteSheet.swift in Sources */,
 				6C322BDE29F9E05B0022CE1E /* HomeView.swift in Sources */,
+				6C1E2F592A06E30800C28413 /* VerticalCalendarCellView.swift in Sources */,
 				6C800BC02A03608C0010CA63 /* NoteRowView.swift in Sources */,
 				6C322BE029F9E0810022CE1E /* DataModels.swift in Sources */,
 				6C64E09D29FF879000EA9262 /* DataManager.swift in Sources */,
+				6C1E2F542A06D18F00C28413 /* SidebarView.swift in Sources */,
 				6C64E0B12A0229FB00EA9262 /* QRScanView.swift in Sources */,
 				6C322BCC29F9DF960022CE1E /* ContentView.swift in Sources */,
+				6C1E2F572A06E23400C28413 /* VerticalCalendarView.swift in Sources */,
 				6C322BE329F9E0990022CE1E /* NinjaModel.xcdatamodeld in Sources */,
 				6C800BBA2A035EE50010CA63 /* DrawingView.swift in Sources */,
 				6C64E0A629FF8BA200EA9262 /* MonthDateScrollerView.swift in Sources */,

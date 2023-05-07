@@ -11,9 +11,10 @@ struct HomeView: View {
     
     @EnvironmentObject var manager : DataManager
     
+    let dateHolder = DateHolder()
+    
     @State private var showingQR: Bool = false
     @State private var studentName: String = "Lukas"
-//    @State private var tasks: [Task] = []
     @State private var courses: [Folder] = [
         Folder(
             id: UUID(),
@@ -48,77 +49,101 @@ struct HomeView: View {
             subfolders: []
         )
     ]
-
-
     
-    let dateHolder = DateHolder()
     
     var body: some View {
         
-        NavigationStack {
-            ScrollView {
+        NavigationSplitView(sidebar: {
+            SidebarView()
+                .navigationTitle("Folders")
+        }, detail: {
+            
+            NavigationStack {
                 VStack (alignment:.leading) {
-                    HStack {
-                        Text("Welcome \(studentName)")
-                            .font(.largeTitle)
-                            .bold()
-                        Spacer()
-                        Button(action: {showingQR = true}, label: {Image(systemName: "qrcode")})
-                            .padding(.trailing)
-                    }
-                    
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(.white)
-                            .shadow(color: .gray.opacity(0.3), radius: 5, x: 0, y: -5)
-                            .shadow(color: .gray.opacity(0.3), radius: 5, x: 0, y: 5)
-                        WeekCalendarView(folders: courses)
-                            .environmentObject(dateHolder)
-                            .environmentObject(manager)
-                            .padding()
-                    }
-                    .onAppear {dateHolder.currentWeekIndex = 0}
-                    
-                    GeometryReader { geometry in
-                        HStack (alignment:.top) {
-                            ZStack (alignment:.topLeading) {
-                                RoundedRectangle(cornerRadius: 20)
-                                    .foregroundColor(.white)
-                                    .shadow(color:.gray.opacity(0.3), radius:5,x:0,y:5)
-                                VStack (alignment:.leading) {
-                                    Text("Upcoming Tasks")
-                                        .font(.system(size:20))
-                                        .bold()
-                                    TaskListView()
-                                        .environmentObject(manager)
-                                    Spacer()
-                                }
-                                .padding()
-                            }
-                            .frame(width: geometry.size.width * 2/3) // Set the width to 2/3 of the screen width
-
-                            Spacer()
-
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 20)
-                                    .foregroundColor(.white)
-                                    .shadow(color:.gray.opacity(0.3), radius:5,x:0,y:5)
-                                VStack (alignment:.leading) {
-                                    Text("Classes")
-                                        .font(.system(size:20))
-                                        .bold()
-                                    ClassGridView(courses: courses)
-                                    Spacer()
-                                }
-                                .padding()
-                            }
-                            .frame(width: geometry.size.width * 1/3) // Set the width to 1/3 of the screen width
+                    HStack (alignment:.top) {
+                        VStack (alignment:.leading) {
+                            Text("Tasks")
+                        }
+                        VStack (alignment:.leading) {
+                            Text("Calendar")
+                            VerticalCalendarView()
+                                .environmentObject(manager)
+                                .environmentObject(dateHolder)
                         }
                     }
+                    Spacer()
                 }
-                .padding()
             }
-        }
+            
+            
+            
+            
+//            NavigationStack {
+//                ScrollView {
+//                    VStack (alignment:.leading) {
+//                        HStack {
+//                            Text("Welcome \(studentName)")
+//                                .font(.largeTitle)
+//                                .bold()
+//                            Spacer()
+//                            Button(action: {showingQR = true}, label: {Image(systemName: "qrcode")})
+//                                .padding(.trailing)
+//                        }
+//
+//                        ZStack {
+//                            RoundedRectangle(cornerRadius: 20)
+//                                .foregroundColor(.white)
+//                                .shadow(color: .gray.opacity(0.3), radius: 5, x: 0, y: -5)
+//                                .shadow(color: .gray.opacity(0.3), radius: 5, x: 0, y: 5)
+//                            WeekCalendarView(folders: courses)
+//                                .environmentObject(dateHolder)
+//                                .environmentObject(manager)
+//                                .padding()
+//                        }
+//                        .onAppear {dateHolder.currentWeekIndex = 0}
+//
+//                        GeometryReader { geometry in
+//                            HStack (alignment:.top) {
+//                                ZStack (alignment:.topLeading) {
+//                                    RoundedRectangle(cornerRadius: 20)
+//                                        .foregroundColor(.white)
+//                                        .shadow(color:.gray.opacity(0.3), radius:5,x:0,y:5)
+//                                    VStack (alignment:.leading) {
+//                                        Text("Upcoming Tasks")
+//                                            .font(.system(size:20))
+//                                            .bold()
+//                                        TaskListView()
+//                                            .environmentObject(manager)
+//                                        Spacer()
+//                                    }
+//                                    .padding()
+//                                }
+//                                .frame(width: geometry.size.width * 2/3)
+//
+//                                Spacer()
+//
+//                                ZStack {
+//                                    RoundedRectangle(cornerRadius: 20)
+//                                        .foregroundColor(.white)
+//                                        .shadow(color:.gray.opacity(0.3), radius:5,x:0,y:5)
+//                                    VStack (alignment:.leading) {
+//                                        Text("Classes")
+//                                            .font(.system(size:20))
+//                                            .bold()
+//                                        ClassGridView(courses: courses)
+//                                        Spacer()
+//                                    }
+//                                    .padding()
+//                                }
+//                                .frame(width: geometry.size.width * 1/3)
+//                            }
+//                        }
+//                    }
+//                    .padding()
+//                }
+//            }
+        })
+        .navigationSplitViewStyle(.prominentDetail)
     }
     
     func fetchTask(from url: String) {
@@ -166,8 +191,8 @@ struct HomeView: View {
             print("Decoding error details: \(error)")
         }
     }
-    
 }
+
 
 struct WeeklyCalendarView: View {
     var body: some View {

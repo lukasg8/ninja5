@@ -15,12 +15,49 @@ struct ContentView: View {
     let dateHolder = DateHolder()
 
     var body: some View {
+        
+//        NavigationSplitView(sidebar: {
+//            MySidebar()
+//        }, detail: {
+//            TabView(selection: $selectedTab) {
+//                HomeView()
+//                    .environmentObject(manager)
+//                    .tabItem {
+//                        Image(systemName: "house.fill")
+//                        Text("Home")
+//                    }
+//                    .tag(0)
+//
+//                MonthCalendarView()
+//                    .environmentObject(dateHolder)
+//                    .environmentObject(manager)
+//                    .tabItem {
+//                        Image(systemName: "calendar")
+//                        Text("Calendar")
+//                    }
+//                    .tag(1)
+//
+//                AllNotesView()
+//                    .tabItem {
+//                        Image(systemName: "note.text")
+//                        Text("All Notes")
+//                    }
+//                    .tag(2)
+//            }
+//        })
+//        .navigationSplitViewStyle(.prominentDetail)
+        
         TabView(selection: $selectedTab) {
             HomeView()
                 .environmentObject(manager)
                 .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
+                    VStack {
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
+                    .onTapGesture {
+                        selectedTab = 0
+                    }
                 }
                 .tag(0)
 
@@ -42,3 +79,4 @@ struct ContentView: View {
         }
     }
 }
+
