@@ -149,7 +149,7 @@ struct TasksByDateView: View {
                 print("Error fetching data: \(error.localizedDescription)")
                 return
             }
-
+            
             guard let data = data else {
                 print("No data received")
                 return
@@ -159,12 +159,12 @@ struct TasksByDateView: View {
             if let jsonString = String(data: data, encoding: .utf8) {
                 print("Fetched JSON data: \(jsonString)")
             }
-
+            
             parseTaskJSON(data: data)
         }.resume()
     }
 
-
+    
     func parseTaskJSON(data: Data) {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
@@ -172,7 +172,6 @@ struct TasksByDateView: View {
         do {
             let tasks = try decoder.decode([Task].self, from: data)
             DispatchQueue.main.async {
-//                self.tasks = tasks
                 for task in tasks {
                     manager.addTask(task: task)
                 }
